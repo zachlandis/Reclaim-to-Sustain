@@ -322,64 +322,168 @@
           </div>
         </div>
 
-        <form class="lead-form reveal reveal-delay" id="lead-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="23e56279-a444-453d-9f1f-240cc7fe648c" />
-          <input type="hidden" name="subject" value="New Reclaim to Sustain Yard Assessment Lead" />
-          <input type="hidden" name="from_name" value="Reclaim to Sustain Website" />
-          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
-
+        <form
+          class="lead-form reveal reveal-delay"
+          id="lead-form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="23e56279-a444-453d-9f1f-240cc7fe648c"
+          />
+        
+          <input
+            type="hidden"
+            name="subject"
+            value="New Reclaim to Sustain Yard Assessment Lead"
+          />
+        
+          <input
+            type="hidden"
+            name="from_name"
+            value="Reclaim to Sustain Website"
+          />
+        
+          <input
+            type="checkbox"
+            name="botcheck"
+            class="hidden"
+            style="display: none;"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        
           <div class="form-header">
             <span class="form-step">START HERE</span>
+        
             <h3>Tell us about your yard.</h3>
-            <p>We’ll follow up to learn more and figure out the right next step.</p>
+        
+            <p>
+              We’ll follow up to learn more and figure out the right next step.
+            </p>
           </div>
-
+        
           <div class="form-row">
             <label>
               <span>Name *</span>
-              <input type="text" name="name" required autocomplete="name" placeholder="Your name" />
+        
+              <input
+                type="text"
+                name="name"
+                required
+                autocomplete="name"
+                placeholder="Your name"
+              />
             </label>
+        
             <label>
               <span>Phone</span>
-              <input type="tel" name="phone" autocomplete="tel" placeholder="(303) 555-0123" />
+        
+              <input
+                type="tel"
+                name="phone"
+                autocomplete="tel"
+                placeholder="(303) 555-0123"
+              />
             </label>
           </div>
-
+        
           <div class="form-row">
             <label>
               <span>Email *</span>
-              <input type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+        
+              <input
+                type="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="you@example.com"
+              />
             </label>
+        
             <label>
               <span>City / ZIP</span>
-              <input type="text" name="location" autocomplete="postal-code" placeholder="Arvada, 80005" />
+        
+              <input
+                type="text"
+                name="location"
+                autocomplete="postal-code"
+                placeholder="Arvada, 80005"
+              />
             </label>
           </div>
-
+        
           <label>
             <span>What would you like help with? *</span>
+        
             <div class="select-wrap">
               <select name="project_type" required>
-                <option value="" selected disabled>Select a project type</option>
-                <option>Irrigation efficiency / repair</option>
-                <option>Drip conversion</option>
-                <option>Lawn reduction / xeriscape</option>
-                <option>Native landscaping</option>
-                <option>Edible garden / raised beds</option>
-                <option>Whole-yard improvement</option>
-                <option>Not sure yet</option>
+                <option value="" selected disabled>
+                  Select a project type
+                </option>
+        
+                <option value="Irrigation efficiency / repair">
+                  Irrigation efficiency / repair
+                </option>
+        
+                <option value="Drip conversion">
+                  Drip conversion
+                </option>
+        
+                <option value="Lawn reduction / xeriscape">
+                  Lawn reduction / xeriscape
+                </option>
+        
+                <option value="Native landscaping">
+                  Native landscaping
+                </option>
+        
+                <option value="Edible garden / raised beds">
+                  Edible garden / raised beds
+                </option>
+        
+                <option value="Whole-yard improvement">
+                  Whole-yard improvement
+                </option>
+        
+                <option value="Not sure yet">
+                  Not sure yet
+                </option>
               </select>
             </div>
           </label>
-
+        
           <label>
             <span>Tell us about the yard</span>
-            <textarea name="message" rows="5" placeholder="What’s working, what’s not, and what would you like the space to become?"></textarea>
+        
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="What’s working, what’s not, and what would you like the space to become?"
+            ></textarea>
           </label>
-
-          <button class="button form-button" id="form-submit" type="submit">Request My Assessment <span>→</span></button>
-          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          <p class="form-note">Your information stays private. No spam. No hard sell.</p>
+        
+          <button
+            class="button form-button"
+            id="form-submit"
+            type="submit"
+          >
+            Request My Assessment
+            <span>→</span>
+          </button>
+        
+          <p
+            class="form-status"
+            id="form-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+        
+          <p class="form-note">
+            Your information stays private. No spam. No hard sell.
+          </p>
         </form>
       </div>
     </section>
