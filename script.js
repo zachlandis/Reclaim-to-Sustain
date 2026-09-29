@@ -1,24 +1,49 @@
+const header = document.getElementById('site-header');
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
+
+const updateHeader = () => {
+  if (!header) return;
+  header.classList.toggle('scrolled', window.scrollY > 16);
+};
+
+updateHeader();
+window.addEventListener('scroll', updateHeader, { passive: true });
 
 if (menuToggle && mobileMenu) {
   menuToggle.addEventListener('click', () => {
     const open = menuToggle.getAttribute('aria-expanded') === 'true';
     menuToggle.setAttribute('aria-expanded', String(!open));
     mobileMenu.hidden = open;
+    document.body.classList.toggle('menu-open', !open);
   });
 
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.hidden = true;
       menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
     });
   });
 }
 
 const year = document.getElementById('year');
-if (year) {
-  year.textContent = new Date().getFullYear();
+if (year) year.textContent = new Date().getFullYear();
+
+const revealElements = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+} else {
+  revealElements.forEach(el => el.classList.add('is-visible'));
 }
 
 const leadForm = document.getElementById('lead-form');
@@ -30,13 +55,13 @@ if (leadForm && formStatus && submitButton) {
     event.preventDefault();
 
     const accessKey = leadForm.querySelector('[name="access_key"]')?.value?.trim();
-
     if (!accessKey || accessKey === '23e56279-a444-453d-9f1f-240cc7fe648c') {
-      formStatus.textContent = 'Form setup is incomplete. Please add the Web3Forms access key.';
+      formStatus.textContent = 'Form setup is incomplete. Add your Web3Forms access key first.';
       formStatus.className = 'form-status error';
       return;
     }
 
+    const originalButton = submitButton.innerHTML;
     submitButton.disabled = true;
     submitButton.textContent = 'Sending…';
     formStatus.textContent = 'Sending your request…';
@@ -52,13 +77,10 @@ if (leadForm && formStatus && submitButton) {
       });
 
       const result = await response.json();
-
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Submission failed');
-      }
+      if (!response.ok || !result.success) throw new Error(result.message || 'Submission failed');
 
       leadForm.reset();
-      formStatus.textContent = 'Thanks — your yard assessment request was sent. We’ll be in touch soon.';
+      formStatus.textContent = 'Thanks — your assessment request was sent. We’ll be in touch soon.';
       formStatus.className = 'form-status success';
     } catch (error) {
       console.error('Web3Forms submission error:', error);
@@ -66,7 +88,7 @@ if (leadForm && formStatus && submitButton) {
       formStatus.className = 'form-status error';
     } finally {
       submitButton.disabled = false;
-      submitButton.textContent = 'Request an Assessment';
+      submitButton.innerHTML = originalButton;
     }
   });
 }
