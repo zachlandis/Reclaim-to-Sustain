@@ -55,11 +55,13 @@ if (leadForm && formStatus && submitButton) {
     event.preventDefault();
 
     const accessKey = leadForm.querySelector('[name="access_key"]')?.value?.trim();
-    if (!accessKey || accessKey === '23e56279-a444-453d-9f1f-240cc7fe648c') {
-      formStatus.textContent = 'Form setup is incomplete. Add your Web3Forms access key first.';
+    if (!accessKey || accessKey === 'PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE') {
+      formStatus.textContent = 'Add your Web3Forms access key in index.html before publishing.';
       formStatus.className = 'form-status error';
       return;
     }
+
+    if (!leadForm.reportValidity()) return;
 
     const originalButton = submitButton.innerHTML;
     submitButton.disabled = true;
@@ -69,22 +71,34 @@ if (leadForm && formStatus && submitButton) {
 
     try {
       const formData = new FormData(leadForm);
-      formData.append('replyto', formData.get('email') || '');
+      const payload = Object.fromEntries(formData.entries());
+
+      // Web3Forms supports replyto so replies go directly to the customer.
+      payload.replyto = payload.email || '';
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
       });
 
       const result = await response.json();
-      if (!response.ok || !result.success) throw new Error(result.message || 'Submission failed');
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || `Submission failed (${response.status})`);
+      }
 
       leadForm.reset();
       formStatus.textContent = 'Thanks — your assessment request was sent. We’ll be in touch soon.';
       formStatus.className = 'form-status success';
     } catch (error) {
       console.error('Web3Forms submission error:', error);
-      formStatus.textContent = 'Something went wrong. Please try again in a moment.';
+      formStatus.textContent = error?.message
+        ? `Couldn’t send: ${error.message}`
+        : 'Something went wrong. Please try again.';
       formStatus.className = 'form-status error';
     } finally {
       submitButton.disabled = false;
