@@ -55,7 +55,7 @@ if (leadForm && formStatus && submitButton) {
     event.preventDefault();
 
     const accessKey = leadForm.querySelector('[name="access_key"]')?.value?.trim();
-    if (!accessKey || accessKey === 'PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE') {
+    if (!accessKey || accessKey === '23e56279-a444-453d-9f1f-240cc7fe648c') {
       formStatus.textContent = 'Add your Web3Forms access key in index.html before publishing.';
       formStatus.className = 'form-status error';
       return;
