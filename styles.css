@@ -176,3 +176,20 @@ input:focus, select:focus, textarea:focus { outline: 2px solid rgba(39,92,59,.2)
   .footer-grid { display: grid; }
   .footer-right { text-align: left; }
 }
+
+.form-button:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-status {
+  min-height: 20px;
+  margin: -4px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-status.success { color: #236b3a; }
+.form-status.error { color: #a33a31; }
