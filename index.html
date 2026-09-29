@@ -192,10 +192,11 @@
           </div>
         </div>
 
-        <form class="lead-form" id="lead-form" action="https://formsubmit.co/REPLACE_WITH_YOUR_EMAIL" method="POST">
-          <input type="hidden" name="_subject" value="New Reclaim to Sustain Yard Assessment Lead" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
+        <form class="lead-form" id="lead-form">
+          <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE" />
+          <input type="hidden" name="subject" value="New Reclaim to Sustain Yard Assessment Lead" />
+          <input type="hidden" name="from_name" value="Reclaim to Sustain Website" />
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
 
           <label>
             Name
@@ -237,7 +238,8 @@
             <textarea name="message" rows="5" placeholder="What's working, what's not, and what would you like the space to become?"></textarea>
           </label>
 
-          <button class="button form-button" type="submit">Request an Assessment</button>
+          <button class="button form-button" id="form-submit" type="submit">Request an Assessment</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           <p class="form-note">No pressure. This is simply the first step in figuring out what makes sense for your yard.</p>
         </form>
       </div>
