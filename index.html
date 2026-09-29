@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon-192.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,18 +19,8 @@
 
   <header class="site-header" id="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="Reclaim to Sustain home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 44 44" fill="none">
-            <path d="M22 5C17 13 10 18.4 10 27a12 12 0 0 0 24 0C34 18.4 27 13 22 5Z" fill="currentColor" opacity=".18"/>
-            <path d="M22 8.5c-4.4 7.1-9.3 11.7-9.3 18.4A9.3 9.3 0 0 0 31.3 27C31.3 20.2 26.4 15.6 22 8.5Z" stroke="currentColor" stroke-width="1.8"/>
-            <path d="M18 28.5c2.6-.2 5-1.7 6.6-4.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="brand-copy">
-          <strong>Reclaim to Sustain</strong>
-          <small>Better Landscapes. Smarter Water.</small>
-        </span>
+      <a class="brand brand-logo" href="#top" aria-label="Reclaim to Sustain home">
+        <img src="assets/logo.png" alt="Reclaim to Sustain — Better Landscapes. Smarter Water." />
       </a>
 
       <nav class="nav-links" aria-label="Primary navigation">
@@ -151,62 +143,81 @@
           <p>Start small with an irrigation problem or rethink the entire landscape. Every project is built around practical impact, not unnecessary scope.</p>
         </div>
 
-        <div class="service-bento">
-          <article class="service-card service-card-primary reveal">
-            <div class="service-number">01</div>
-            <div class="service-icon-wrap">
-              <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3.5C11.7 10 7 14.2 7 20a9 9 0 1 0 18 0c0-5.8-4.7-10-9-16.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M11.8 21.4c.6 2.1 2.2 3.7 4.3 4.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div class="services-catalog">
+          <article class="service-group reveal">
+            <div class="service-group-head">
+              <span class="service-group-number">01</span>
+              <div class="service-group-icon" aria-hidden="true">◒</div>
+              <div>
+                <p class="service-kicker">Water systems</p>
+                <h3>Irrigation & Water Efficiency</h3>
+              </div>
             </div>
-            <div>
-              <p class="service-kicker">Our starting point</p>
-              <h3>Irrigation & Water Efficiency</h3>
-              <p>Make the system you already have work smarter. We diagnose waste, improve coverage, and move water where it actually belongs.</p>
-            </div>
-            <ul class="service-list">
-              <li>Efficiency audits</li><li>Drip conversions</li><li>Leak & coverage troubleshooting</li><li>Smart controllers</li><li>Tree & shrub drip</li>
+            <p class="service-group-summary">Diagnose waste, improve coverage, and get water exactly where your landscape needs it.</p>
+            <ul class="service-menu">
+              <li><span>Irrigation efficiency audits</span><small>Find overspray, dry zones, pressure issues, and waste.</small></li>
+              <li><span>Drip irrigation conversions</span><small>Convert appropriate spray zones to targeted drip.</small></li>
+              <li><span>Leak & coverage troubleshooting</span><small>Repair and improve inefficient system performance.</small></li>
+              <li><span>Smart controller upgrades</span><small>Weather-aware scheduling and smarter zone control.</small></li>
+              <li><span>Tree & shrub drip systems</span><small>Deep, targeted watering for established plantings.</small></li>
+              <li><span>Irrigation redesign</span><small>Rework zones and layouts when the existing system no longer fits the yard.</small></li>
             </ul>
-            <a href="#contact" class="card-link">Start with an assessment <span>→</span></a>
           </article>
 
-          <article class="service-card reveal">
-            <div class="service-number">02</div>
-            <div class="service-icon-wrap small">✦</div>
-            <h3>Lawn Reduction & Xeriscape</h3>
-            <p>Replace thirsty or underused turf with intentional, lower-water areas that still feel finished and inviting.</p>
-          </article>
-
-          <article class="service-card service-card-dark reveal">
-            <div class="service-number">03</div>
-            <div class="service-icon-wrap small">⌁</div>
-            <h3>Native & Water-Wise Planting</h3>
-            <p>Planting plans better suited to Colorado conditions, with an emphasis on resilience, seasonal interest, and efficient watering.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-number">04</div>
-            <div class="service-icon-wrap small">◌</div>
-            <h3>Edible Landscapes</h3>
-            <p>Raised beds, trellises, vegetable gardens, and growing spaces designed to feel like part of the landscape — not an afterthought.</p>
-          </article>
-
-          <article class="service-card service-card-accent reveal">
-            <div class="service-number">05</div>
-            <div class="service-icon-wrap small">⌂</div>
-            <h3>Garden Structures</h3>
-            <p>Raised beds, arches, trellises, irrigation-ready garden zones, and select greenhouse installations.</p>
-          </article>
-
-          <article class="service-card service-card-wide reveal">
-            <div>
-              <div class="service-number">06</div>
-              <div class="service-icon-wrap small">↗</div>
+          <article class="service-group reveal">
+            <div class="service-group-head">
+              <span class="service-group-number">02</span>
+              <div class="service-group-icon" aria-hidden="true">✦</div>
+              <div>
+                <p class="service-kicker">Landscape transformation</p>
+                <h3>Lawn Reduction, Xeriscape & Native Landscapes</h3>
+              </div>
             </div>
-            <div>
-              <p class="service-kicker">Not sure where to begin?</p>
-              <h3>Planning & Yard Assessments</h3>
-              <p>We can look at the yard, identify the biggest opportunities, and build a phased roadmap before you commit to a major project.</p>
+            <p class="service-group-summary">Replace high-input turf with intentional landscapes that use less water and still feel complete.</p>
+            <ul class="service-menu">
+              <li><span>Lawn reduction</span><small>Remove turf where it is not earning its water use.</small></li>
+              <li><span>Xeriscape conversions</span><small>Lower-water landscape redesigns with structure and visual interest.</small></li>
+              <li><span>Native & water-wise planting</span><small>Colorado-appropriate plants selected for resilience and seasonality.</small></li>
+              <li><span>Mulch, rock & planting zones</span><small>Create finished, maintainable beds around the new landscape plan.</small></li>
+              <li><span>Phased yard transformations</span><small>Break a larger project into smart, budget-conscious stages.</small></li>
+            </ul>
+          </article>
+
+          <article class="service-group reveal">
+            <div class="service-group-head">
+              <span class="service-group-number">03</span>
+              <div class="service-group-icon" aria-hidden="true">⌁</div>
+              <div>
+                <p class="service-kicker">Productive landscapes</p>
+                <h3>Edible Gardens & Garden Structures</h3>
+              </div>
             </div>
-            <a href="#contact" class="circle-arrow" aria-label="Request an assessment">→</a>
+            <p class="service-group-summary">Turn part of the yard into useful growing space without making it feel disconnected from the landscape.</p>
+            <ul class="service-menu">
+              <li><span>Raised garden beds</span><small>Built and positioned for practical access, irrigation, and sun.</small></li>
+              <li><span>Vegetable garden installations</span><small>Complete growing zones designed around how you want to use them.</small></li>
+              <li><span>Trellises & garden arches</span><small>Vertical growing structures that add function and character.</small></li>
+              <li><span>Garden drip irrigation</span><small>Efficient watering integrated directly into the growing space.</small></li>
+              <li><span>Greenhouse installations</span><small>Select greenhouse setup and site integration.</small></li>
+            </ul>
+          </article>
+
+          <article class="service-group service-group-feature reveal">
+            <div class="service-group-head">
+              <span class="service-group-number">04</span>
+              <div class="service-group-icon" aria-hidden="true">↗</div>
+              <div>
+                <p class="service-kicker">Not sure where to start?</p>
+                <h3>Yard Assessments & Planning</h3>
+              </div>
+            </div>
+            <p class="service-group-summary">You do not need to know which service you need. We can evaluate the yard, identify the biggest opportunities, and build a practical roadmap.</p>
+            <ul class="service-menu">
+              <li><span>Whole-yard assessment</span><small>Review irrigation, turf, planting, function, and problem areas together.</small></li>
+              <li><span>Water-efficiency assessment</span><small>Focus specifically on irrigation performance and water waste.</small></li>
+              <li><span>Design-only planning</span><small>Get a clear direction and phased plan before committing to installation.</small></li>
+            </ul>
+            <a class="button button-primary service-cta" href="#contact">Request a Yard Assessment <span>→</span></a>
           </article>
         </div>
       </div>
@@ -307,7 +318,7 @@
           </div>
         </div>
 
-        <form class="lead-form reveal reveal-delay" id="lead-form">
+        <form class="lead-form reveal reveal-delay" id="lead-form" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE" />
           <input type="hidden" name="subject" value="New Reclaim to Sustain Yard Assessment Lead" />
           <input type="hidden" name="from_name" value="Reclaim to Sustain Website" />
@@ -372,11 +383,8 @@
 
   <footer class="site-footer">
     <div class="container footer-top">
-      <a class="brand brand-footer" href="#top">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 44 44" fill="none"><path d="M22 5C17 13 10 18.4 10 27a12 12 0 0 0 24 0C34 18.4 27 13 22 5Z" fill="currentColor" opacity=".18"/><path d="M22 8.5c-4.4 7.1-9.3 11.7-9.3 18.4A9.3 9.3 0 0 0 31.3 27C31.3 20.2 26.4 15.6 22 8.5Z" stroke="currentColor" stroke-width="1.8"/></svg>
-        </span>
-        <span class="brand-copy"><strong>Reclaim to Sustain</strong><small>Better Landscapes. Smarter Water.</small></span>
+      <a class="brand brand-footer brand-logo" href="#top" aria-label="Reclaim to Sustain home">
+        <img src="assets/logo.png" alt="Reclaim to Sustain — Better Landscapes. Smarter Water." />
       </a>
       <div class="footer-tagline">Landscapes designed to use <em>less</em> and give <em>more.</em></div>
     </div>
