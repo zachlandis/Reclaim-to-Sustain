@@ -1,9 +1,9 @@
 const siteConfig = {
-  // Green Pergola's on-site quote form uses Web3Forms as the email delivery
+  // Reclaim to Sustain Woodworks quote form uses Web3Forms as the email delivery
   // backend because GitHub Pages is static and cannot send email itself.
-  // Paste the Web3Forms access key for info@thegreenpergola.com below.
+  // Paste the Web3Forms access key for info@reclaimtosustain.com below.
   quoteEndpoint: "https://api.web3forms.com/submit",
-  web3FormsAccessKey: "193f2c54-a5e3-4716-a194-4d6ffacd7c14",
+  web3FormsAccessKey: "23e56279-a444-453d-9f1f-240cc7fe648c",
   requestTimeoutMs: 12000
 };
 
@@ -350,7 +350,7 @@ quoteForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   if (!siteConfig.web3FormsAccessKey || siteConfig.web3FormsAccessKey.includes("PASTE_YOUR")) {
-    formStatus.textContent = "This form is temporarily unavailable. Please email info@thegreenpergola.com.";
+    formStatus.textContent = "This form is temporarily unavailable. Please email info@reclaimtosustain.com.";
     return;
   }
 
@@ -373,8 +373,8 @@ quoteForm.addEventListener("submit", async (e) => {
   try {
     const payload = {
       access_key: siteConfig.web3FormsAccessKey,
-      subject: `New Green Pergola quote request — ${data.product}`,
-      from_name: "Green Pergola Website",
+      subject: `New Reclaim to Sustain Woodworks quote request — ${data.product}`,
+      from_name: "Reclaim to Sustain Website",
       name: data.name,
       email: data.email,
       phone: data.phone || "Not provided",
@@ -409,12 +409,12 @@ quoteForm.addEventListener("submit", async (e) => {
       window.hcaptcha.reset();
     }
   } catch (err) {
-    console.error("Green Pergola quote form error:", err);
+    console.error("Reclaim to Sustain Woodworks quote form error:", err);
 
     if (err.name === "AbortError") {
-      formStatus.textContent = "This is taking longer than expected. Please try again, or email info@thegreenpergola.com.";
+      formStatus.textContent = "This is taking longer than expected. Please try again, or email info@reclaimtosustain.com.";
     } else {
-      formStatus.textContent = "We couldn’t send your request. Please try again, or email info@thegreenpergola.com.";
+      formStatus.textContent = "We couldn’t send your request. Please try again, or email info@reclaimtosustain.com.";
     }
 
     if (window.hcaptcha && typeof window.hcaptcha.reset === "function") {
